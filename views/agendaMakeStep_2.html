@@ -1,0 +1,45 @@
+<style>
+    .agendaMakerStep_2_input{
+        text-align: center;
+        border-width: 1px;
+        border-color: lightgray;
+        border-style: none none solid none;
+        outline-style:none ;
+        height: 35px;
+        line-height: 35px;
+        width: 50%;
+    }
+
+    #agendaMakerStep_2_footer{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 99;
+        background: #48b986;
+        color: #ffffff;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+    }
+    .agendaMakerStep_2_complete_check{
+        border:none ;
+        background: transparent;
+    }
+</style>
+<form name="agendaMakeStep_2_Form" novalidate>
+<div><input class="agendaMakerStep_2_input" value="行程名称" type="text" readonly/><input class="agendaMakerStep_2_input"  ng-model="default_info.agenda_title" placeholder="武汉之旅" autofocus="true" type="text"/></div>
+<div><input class="agendaMakerStep_2_input" value="旅行天数" type="text" readonly/><input class="agendaMakerStep_2_input" ng-model="default_info.agenda_time" placeholder="3" type="number"/></div>
+<div><input class="agendaMakerStep_2_input" value="出发日期" type="text" readonly/><input class="agendaMakerStep_2_input" ng-model="default_info.agenda_start_date" placeholder="2016.08.30,周六" type="text"/></div>
+</form>
+<div id="agendaMakerStep_2_footer" layout="row" layout-align="space-around">
+    <a style="color: #ffffff" ui-sref="index.agendaMaker.agendaMakeStep_1"><span class="fa fa-3x fa-angle-left"></span></a>
+    <span>2.设置行程</span>
+    <button class="agendaMakerStep_2_complete_check" ng-disabled="complete_chec" ng-click="complete()" >完成</button>
+</div>
+
+        <div ng-hide="submit_buffer" style="width: 80px;height: 80px;background: #000;opacity: 0.5;border-radius: 5px;margin: 60px auto" layout="row" layout-align="center center">
+            <md-progress-circular  class="md-accent" md-diameter="70"></md-progress-circular>
+        </div>
+        <div ng-show="submit_error_info" style="text-align: center;width: 70%;height:30px;line-height:30px;background:#000;opacity: 0.4;margin: 60px auto;color: #ffffff;border-radius: 3px">数据提交失败</div>
+

@@ -1,0 +1,37 @@
+/**
+ * Created by HongchunShen on 2016/8/6.
+ */
+angular.module("app").controller("searchCtrl",function($scope,$http,$timeout){
+    $scope.deleteAll=function(){
+        $scope.searchItem="";
+    };
+    //删除输入框已输入字段
+    var timeout=null;
+    $scope.search_error_info=false;
+    $scope.$watch("searchItem",function(newval,oldval){
+        if(newval!==oldval){
+            if(timeout||$scope.searchItem==""){
+                $timeout.cancel(timeout);
+            }
+            timeout=$timeout(function(){
+                $http.get("search.json").success(function(data){
+            console.log(data)
+        }).error(function(data,status,headers,config){
+                $scope.search_error_info=true;
+            $timeout(function(){
+                $scope.search_error_info=false;
+            },700)
+        });
+            },800);
+        }
+    });
+    //向后台取得搜索数据
+    $scope.search=function(){
+        $scope.searchItem.push("searchList");
+    };
+    $scope.searchList=["武汉","北京","上海"];
+    $scope.clearAll=function(){
+        $scope.searchList=[];
+    };
+    //清除搜索历史
+});

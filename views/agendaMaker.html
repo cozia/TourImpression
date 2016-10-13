@@ -1,0 +1,22 @@
+<div  ui-view="">
+    <md-content id="agendaMaker_con" layout="column">
+        <div id="agendaMaker_warpImg" layout="row" layout-align="space-around" flex>
+            <div layout="column" ui-sref="index.agendaMaker.agendaMakeStep_1">
+                <img class="agendaMaker_img" src="img/agendaMaker_logo.png">
+                <span>做行程</span>
+            </div>
+            <div layout="column" ui-sref="index.agendaMaker.travelnotes">
+                <img class="agendaMaker_img" src="img/agendaMaker_write.png">
+                <span>写游记</span>
+            </div>
+        </div>
+        <div id="agendaMaker_close" ui-sref="index"></div>
+    </md-content>
+</div>
+<script>
+    $(function(){
+        winW=$(window).width();
+        winH=$(window).height();
+        $("#agendaMaker_con").css({"width":winW+"px","height":winH+"px"});
+    })
+</script>

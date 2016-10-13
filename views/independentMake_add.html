@@ -1,0 +1,137 @@
+<md-dialog>
+    <md-dialog-content  layout="column">
+        <div ng-hide="six_icon" layout="row" layout-align="space-around">
+            <div ng-repeat="x in independent_icon_six"layout-padding>
+                <md-icon  ng-class="x" ng-click="open($index)"></md-icon>
+            </div>
+        </div>
+        <md-divider></md-divider>
+        <div>
+            <div ng-show="titles[0]" class="md-margin">
+                <div>
+                    添加美食
+                    <div style="width: 100%">
+                        <input style="width: 100%"  placeholder="美食地址" ng-focus="hide_six_icon()" type="text"/>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="价格" readonly type="text"/><input flex="50"  type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="优惠" readonly type="text"/><input flex="50" type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="花费" readonly type="text"/><input flex="50" type="number"/>
+                </div>
+            </div>
+            <!--吃-->
+            <div ng-show="titles[1]" class="md-margin">
+                <div>
+                    添加住宿
+                    <div style="width: 100%">
+                        <input style="width: 100%"  placeholder="请输入酒店名称" type="text"/>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="入住日期" readonly type="text"/><input flex="50"  type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="入住日期" readonly type="text"/><input flex="50" type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="花费" readonly type="text"/><input flex="50" type="number"/>
+                </div>
+            </div>
+            <!--住-->
+            <div ng-show="titles[2]" class="md-margin">
+                <div>
+                    添加出行
+                    <div style="width: 100%">
+                        <input style="width: 100%" ng-model="independentMake_transportation"  placeholder="出行方式" type="text"/>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="起始时间" readonly type="text"/><input flex="50"  ng-model="car.startTime" onchange="javascript:if(!/^[0-5]{1}[0-9]{1}:[0-5]{1}[0-5]{1}$/.test(this.value)){alert('时间格式不正确,正确的格式为 00:00');this.value=''};"  type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="起始" readonly type="text"/><input flex="50"  ng-model="car.startStation"  type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="终点时间" readonly type="text"/><input flex="50"  ng-model="car.arriveTime"  type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="终点" readonly type="text"/><input flex="50" ng-model="car.terminalStation" type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="花费" readonly type="text"/><input flex="50" type="number"/>
+                </div>
+            </div>
+            <!--行-->
+            <div ng-show="titles[3]" class="md-margin">
+                <div>
+                    添加游乐
+                    <div style="width: 100%">
+                        <input style="width: 100%"  placeholder="请输入景点名称" type="text"/>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="是否需要门票" readonly type="text"/><input flex="50"  type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="门票价格" readonly type="text"/><input flex="50" type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="花费" readonly type="text"/><input flex="50" type="number"/>
+                </div>
+            </div>
+            <!--游-->
+            <div ng-show="titles[4]" class="md-margin">
+                <div>
+                    添加购物
+                    <div style="width: 100%">
+                        <input style="width: 100%"  placeholder="购物类型" type="text"/>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="地点" readonly type="text"/><input flex="50"  type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="是否为景区纪念品" readonly type="text"/><input flex="50" type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="花费" readonly type="text"/><input flex="50" type="number"/>
+                </div>
+            </div>
+            <!--购-->
+            <div ng-show="titles[5]" class="md-margin">
+                <div>
+                    添加娱乐
+                    <div style="width: 100%">
+                        <input style="width: 100%"   placeholder="请输入酒店名称" type="text"/>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="入住日期" readonly type="text"/><input flex="50"  type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="入住日期" readonly type="text"/><input flex="50" type="text"/>
+                </div>
+                <div layout="row" class="md-margin" flex>
+                    <input flex="50" value="花费" readonly type="text"/><input flex="50" type="number"/>
+                </div>
+            </div>
+            <!--娱-->
+        </div>
+    </md-dialog-content>
+    <md-divider></md-divider>
+    <md-dialog-actions layout="row" flex>
+        <button flex="50" ng-click="cancel()">取消</button>
+        <button flex="50" ng-click="hide($index)">确定</button>
+    </md-dialog-actions>
+</md-dialog>

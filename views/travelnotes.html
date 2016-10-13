@@ -1,0 +1,149 @@
+<style>
+#travelnotes_textarea{
+    resize: none;
+    width: 100%;
+    height: 150px;
+    border-style: none;
+    outline-style:none ;
+    padding: 8px 16px;
+}
+#travelnotes_write_notes{
+    text-align: center;
+    line-height: 36px
+}
+    #travelnotes_done{
+        text-align: right;
+        line-height: 56px;
+        padding-right: 12px
+    }
+
+    #travelnotes_assessment{
+        height: 50px;
+        line-height: 50px;
+        color: sandybrown;
+        text-align: center;
+    }
+    #travelnotes_star_collection{
+        color: lightgray;
+    }
+    #travelnotes_add_box{
+        color: lightgray;
+    }
+    input{
+        width: 50%;
+        border-style: none none solid none;
+        border-width: 1px;
+        border-color: lightgray;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        outline-style: none;
+    }
+.travelnotes_close{
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 16px;
+    top: 17px;
+}
+.travelnotes_close::before{
+    content:"";
+    position: absolute;
+    width: 26px;
+    height: 1px;
+    background: #ffffff;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 13px;
+}
+.travelnotes_close::after{
+    content:"";
+    position: absolute;
+    width: 26px;
+    height: 1px;
+    background: #ffffff;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 13px;
+}
+.travelnotes_upload_img_con{
+    width: 60px;
+    height: 60px;
+    border: 1px solid mediumvioletred;
+    margin-left: 20px;
+    }
+
+</style>
+<div>
+    <md-toolbar class="md-accent" layout="row" layout-align="space-around" flex>
+        <div class="travelnotes_close" ui-sref="index.agendaMaker"></div>
+        <div flex="33"></div>
+        <h4 flex="33"  id="travelnotes_write_notes" >写游记</h4>
+        <span flex="33" ng-click="travelnotes_submit" id="travelnotes_done" class="fa fa-1.5x fa-check-square-o"></span>
+    </md-toolbar>
+    <!--顶部导航条-->
+    <div flex id="travelnotes_assessment" layout="row" layout-align="space-around">
+        <span flex="33">评价：</span>
+        <div flex="33" id="travelnotes_star_collection">
+            <span title="差" class="fa fa-star"></span>
+            <span title="一般" class="fa fa-star"></span>
+            <span title="良好" class="fa fa-star"></span>
+            <span title="好" class="fa fa-star"></span>
+            <span title="优秀" class="fa fa-star"></span>
+        </div>
+        <span flex="33" ng-model="travelnotes_Info.assessment" id="travelnotes_star">暂无评价</span>
+    </div>
+    <!--星星点评-->
+    <md-divider></md-divider>
+    <textarea id="travelnotes_textarea" ng-model="travelnotes_Info.travelnotes_Mytravels" placeholder="既然来了，留下你的痕迹吧"></textarea>
+    <!--游记输入编辑区域，文本输入-->
+    <div id="travelnotes_add_box" class="md-margin" layout="row">
+        <span id="test" class="fa fa-3x fa-plus-square"></span>
+        <input style="width: 0;height: 0;" id="testfile" style=""  accept="image/jpeg,image/jpg" multiple="multiple" type="file"/>
+    </div>
+    <!--文件上传，图片上传-->
+    <md-divider></md-divider>
+    <div style="height: 5px;background: #dcdcdc;"></div>
+    <md-content>
+        <input value="旅行地点(必填)" readonly type="text"/><input ng-model="travelnotes_Info.travelnotes_destinations" placeholder="未填写" type="text"/>
+        <input value="旅行时间(必填)" readonly type="text"/><input ng-model="travelnotes_Info.travelnotes_time" placeholder="未填写" type="text"/>
+        <input value="参与话题"  readonly type="text"/><input ng-model="travelnotes_Info.travelnotes_topic" placeholder="未填写" type="text"/>
+    </md-content>
+</div>
+    <!--相关信息填写-->
+<script>
+    $(function(){
+        var imgpath=undefined;
+        $("#test").click(function(){
+            $("#testfile").trigger("click")
+        });
+        $("#testfile").change(function(){
+            console.log(imgpath);
+            $(".travelnotes_upload_img_con").attr("src",imgpath);
+        });
+    });
+        var a=document.getElementById("travelnotes_star_collection");
+        var b=a.getElementsByTagName("span");
+        var clear_all=function(){
+            for(var i= 0,n= b.length;i<n;i++){
+                b[i].style.color="lightgray"
+            }
+        };
+        for(var j= 0;j< b.length;j++){
+          b[j].index=j;
+          b[j].onclick=function(){
+                clear_all();
+                for(var m=0;m<this.index+1;m++){
+                    b[m].style.color="sandybrown"
+                }
+                document.getElementById("travelnotes_star").innerHTML=this.getAttribute("title");
+          }
+        }
+</script>
+

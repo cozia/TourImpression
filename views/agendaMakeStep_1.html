@@ -1,0 +1,46 @@
+<md-content>
+    <md-toolbar class="md-accent agendaMakerStep_1_toolbar" layout="row" layout-align="center center">
+        <div class="agendaMaker_close" ui-sref="index.agendaMaker"></div>
+        <h4>做行程</h4>
+        <div></div>
+    </md-toolbar>
+    <div style="width: 100%;height: 56px;"></div>
+ <div ui-view="">
+    <div  class="agendaMaker_datepicker">
+        <div class="triangle triangle-left" ng-click="del()"></div>
+        <div class="agendaMaker_datepicker_input"  ng-model="default_info.datePicker" ng-bind="datePicker"></div>
+        <div class="triangle triangle-right" ng-click="add()"></div>
+    </div>
+    <div id="agendaMakeStep_1_Country_container" flex layout="row">
+        <div flex="50" id="agendaMakeStep_1_inCountry" ng-click="in_toggle()" ng-class="{agendaMakeStep_1_Country_addClass:inFocus}">国内</div>
+        <div flex="50" id="agendaMakeStep_1_outCountry" ng-click="out_toggle()" ng-class="{agendaMakeStep_1_Country_addClass:outFocus}">国外</div>
+    </div>
+    <div ng-hide="show_in_select" ng-repeat="select in tour_select" ng-init="outerIndex=$index">
+        <div>
+            <md-divider ng-hide="$first"></md-divider>
+            <div id="tour_province" class="tour_province" ng-click="openSelect($index)">{{select.province}}</div>
+            <md-divider ng-hide="$last"></md-divider>
+            <div id="tour_city"  class="tour_city"
+                 ng-class-odd="{classOdd:'true'}"
+                 ng-show="select.show_city" ng-repeat="x in select.city track by $index"
+                 ng-init="innerIndex=$index" ng-click="sel(outerIndex,innerIndex)">{{x}}</div>
+        </div>
+    </div>
+    <div style="height: 50px;width: 100%;"></div>
+    <div id="agendaMakeStep_1_footer" layout="row">
+        <span id="agendaMakeStep_1_inner_selected">已选择：<span  ng-bind="default_info.selResult"></span></span>
+        <!--<div id="agendaMakerStep_num">-->
+            <!--<span>成人：</span><input id="agendaMakeStep_1_adultsNumber"  type="number"/>-->
+            <!--<span>儿童：</span><input id="agendaMakeStep_1_oldNumber" type="number"/>-->
+        <!--</div>-->
+        <button id="agendaMakeStep_1_inner_next"  class="fa fa-3x fa-angle-right" ng-disabled="submit_check()" ui-sref="index.agendaMaker.agendaMakeStep_1.agendaMakerStep_2"></button>
+    </div>
+ </div>
+</md-content>
+
+
+        <!--<div ng-show="agendaMakeStep_1_tip" id="agendaMakeStep_1_tip">请选择目的地</div>-->
+
+
+
+

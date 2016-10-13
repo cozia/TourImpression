@@ -1,0 +1,122 @@
+<style>
+    .independentMake_green{
+        min-height: 80px;
+        background: forestgreen;
+        text-align: center;
+        line-height: 80px;
+        color: #ffffff;
+    }
+    .independentMake_list_child{
+        height: 150px;
+        text-align: center;
+    }
+    .independentMake_span{
+        font-size: 30px;
+        color: lightgray;
+    }
+    input{
+        text-align: center;
+        border-style: none;
+        outline-style: none;
+    }
+
+    md-dialog input{
+        border-width: 1px 0 1px 0;
+        border-style: solid;
+        border-color: #808080;
+        height: 30px;
+    }
+    md-dialog button{
+        border-style: none;
+        height: 30px;
+        background: transparent;
+    }
+    #independentMake_add_day{
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: yellowgreen;
+        border-radius: 50%;
+        font-size: 50px;
+        color: #ffffff;
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        z-index: 99;
+        opacity: 0.5;
+        outline-style: none;
+    }
+</style>
+<md-content>
+    <md-content>
+        <md-list>
+            <md-list-item >
+                    <div style="width: 100%;" flex class="md-padding" layout="row" layout-align="space-around" >
+                        <div flex="45" layout="column" layout-align="center center">
+                            <input placeholder="出发时间" type="text"/>
+                            <input placeholder="出发地" type="text"/>
+                        </div>
+                        <div flex="10" style="text-align: center;line-height: 52px">
+                            <md-icon class="fa fa-arrow-right"></md-icon>
+                        </div>
+                        <div flex="45" layout="column" layout-align="center center">
+                            <input placeholder="到达时间" type="text"/>
+                            <input placeholder="目的地" type="text"/>
+                        </div>
+                    </div>
+                    <md-divider></md-divider>
+            </md-list-item>
+
+
+            <div style="width: 100%;border-bottom: 1px solid lightgray" flex ng-repeat="test in independent_list track by $index" ng-init="outIndex=$index" layout="row">
+                <div flex="15" layout="row" layout-align="center center" class="independentMake_green">
+                    <span style="font-size: 30px;opacity: 0.4">{{$index+1}}</span>           <!--在personalCreatedAgendaCtrl.js这个文件里面-->
+                </div>
+                <div flex="80" style="text-align: center;font-size: 12px" layout="column" layout-align="center">
+                    <span style="color: lightgray;line-height: 80px;" ng-if="has_no_data">暂无数据</span>
+                    <md-list ng-repeat="test_01 in test.what track by $index" ng-init="innerIndex=$index">
+                        <md-list-item>
+                            <div class="">
+                                <md-icon style="line-height: 24px" ng-class="getIconClass(test_01.type)"></md-icon>
+                            </div>
+                            <div flex class="md-padding" layout="row" layout-align="space-around">
+                                <div layout="column" layout-align="center center">
+                                    <div>{{test_01.startTime}}</div>
+                                    <div>{{test_01.startStation}}</div>
+                                </div>
+                                <md-icon style="line-height: 24px" class="fa fa-arrow-right" ></md-icon>
+                                <div layout="column" layout-align="center center">
+                                    <div>{{test_01.arriveTime}}</div>
+                                    <div>{{test_01.terminalStation}}</div>
+                                </div>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </div>
+                <div style="text-align: center;line-height: 80px;min-height: 80px;"  layout="row" layout-align="center center"  ng-click="independentMake_add($event,$index)">
+                    <span style="color:#808080" class="fa fa-2x fa-reorder md-padding"></span>
+                </div>
+            </div>
+
+            <div id="independentMake_add_day" ng-click="add_day()">+</div>
+
+            <md-list-item>
+                <div style="width: 100%;" flex class="md-padding" layout="row" layout-align="space-around" >
+                    <div flex="45" layout="column" layout-align="center center">
+                        <input placeholder="出发时间" type="text"/>
+                        <input placeholder="出发地" type="text"/>
+                    </div>
+                    <div flex="10" style="text-align: center;line-height: 52px">
+                        <md-icon class="fa fa-arrow-right"></md-icon>
+                    </div>
+                    <div flex="45" layout="column" layout-align="center center">
+                        <input placeholder="到达时间" type="text"/>
+                        <input placeholder="目的地" type="text"/>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+            </md-list-item>
+        </md-list>
+    </md-content>      <!--用户自定义出行数据-->
+</md-content>

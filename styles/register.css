@@ -1,0 +1,48 @@
+.logIcon{
+    width: 100px;
+}
+.telNum{
+    position: relative;
+}
+#verificatalCode{
+    z-index:50;
+    background: #337ab7;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    border: none;
+    width: 60px;
+    height: 32px;
+    color: #ffffff;
+    outline-style: none;
+    font-size: 7px;
+}
+.ok{
+    color: red;
+}
+#agreeItems{
+    padding-top: 50px;
+}
+#agreeItems>a{
+    text-decoration: none;
+}
+.warning{
+    color: red;
+}
+#register_returnBar{
+    width: 56px;
+    height: 56px;
+    text-align: center;
+}
+#register_returnBar>span{
+    line-height: 56px;
+}
+#register_header_con{
+    line-height: 36px;
+}
+#register_header_info{
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+}

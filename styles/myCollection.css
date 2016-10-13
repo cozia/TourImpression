@@ -1,0 +1,49 @@
+.myCollection_con{
+    position: relative;
+}
+.myCollection_img{
+    -webkit-filter:brightness(0.6);
+}
+.myCollection_dis{
+    position: absolute;
+    z-index: 100;
+    color: #ffffff;
+    left: 50%;
+    top: 50%;
+    margin-left: -7.2em;
+    margin-top: -2em;
+}
+.myCollection_close{
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 16px;
+    top: 17px;
+
+}
+.myCollection_close::before{
+    content:"";
+    position: absolute;
+    width: 26px;
+    height: 1px;
+    background: #ffffff;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 13px;
+}
+.myCollection_close::after{
+    content:"";
+    position: absolute;
+    width: 26px;
+    height: 1px;
+    background: #ffffff;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 13px;
+}

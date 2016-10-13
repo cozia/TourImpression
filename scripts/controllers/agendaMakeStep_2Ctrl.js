@@ -1,0 +1,26 @@
+/**
+ * Created by HongchunShen on 2016/8/30.
+ */
+angular.module("app").controller("agendaMakeStep_2Ctrl",function($scope,$http,$timeout,$location){
+        $scope.submit_buffer=true;
+    $scope.submit_error_info=false;
+    $scope.complete=function(){
+        if($scope.default_info.agenda_title==""||$scope.default_info.agenda_start_date==""){
+            $scope.complete_check=true;
+        }else{
+            $scope.complete_check=false;
+            $http.post("submit.php",$scope.default_info).success(function(){
+                $scope.submit_buffer=false;
+                $timeout(function(){
+                    $scope.submit_buffer=true;
+                    $location.path("index/personalCreatedAgenda")
+                },800);
+            }).error(function(){
+                $scope.submit_error_info=true;
+                $timeout(function(){
+                    $scope.submit_error_info=false;
+                },1000);
+            })
+        }
+    }
+});

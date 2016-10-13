@@ -1,0 +1,57 @@
+<div ng-cloak>
+    <md-toolbar class="md-accent" layout="row" layout-align="space-between">
+        <div id="register_returnBar" ui-sref="index" > <span class="fa fa-2x fa-angle-left "></span></div>
+        <h4 id="register_header_con">注册</h4>
+        <div id="register_header_info" class="fa fa-info-circle"></div>
+    </md-toolbar>
+    <div class="mid" layout="column" layout-padding>
+        <form ng-submit="sub()" name="registerForm" class="bs-example bs-example-form" role="form" novalidate="novalidate">
+            <div class="input-group input-group-md">
+                <span class="input-group-addon">用户名</span>
+                <input type="text" name="user" ng-model="userDate.userName" class="form-control" required>
+            </div><br>
+            <p class="error" ng-if="(registerForm.user.$error.required)&&registerForm.user.$touched">用户名无效</p>
+            <div class="input-group input-group-md telNum">
+                <span class="input-group-addon">手机号</span>
+                <input name="telNum" ng-model="userDate.telNum" ng-pattern="/^1[3|4|5|7|8]\d{9}$/" ng-minlength="11" ng-maxlength="11"  class="form-control" required>
+                <button id="verificatalCode" type="button" ng-disabled="registerForm.telNum.$invalid">获取验证码</button>
+            </div><br>
+            <p class="error" ng-if="(registerForm.telNum.$error.required)&&registerForm.telNum.$touched">手机号不能为空</p>
+            <p class="error" ng-if="registerForm.telNum.$error.pattern&&registerForm.telNum.$touched">不合法手机号</p>
+            <p class="error" ng-if="(registerForm.telNum.$error.minlength||registerForm.telNum.$error.maxlength)&&registerForm.telNum.$touched">手机号码必须为11位</p>
+            <div class="input-group input-group-md">
+                <span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>
+                <input ng-minlength="8" name="password" ng-model="userDate.password" class="form-control" required>
+            </div><br>
+            <p class="error" ng-if="(registerForm.password.$error.required)&&registerForm.password.$touched">密码好像忘了填了</p>
+            <div class="input-group input-group-md">
+                <span class="input-group-addon">验证码</span>
+                <input type="text" class="form-control" ng-model="userDate.verificatalCode" required>
+            </div><br>
+            <div layout="row" layout-align="space-around">
+                <button ng-disabled="registerForm.$invalid" class="btn btn-success logIcon">注册</button>
+                <button type="button" class="btn btn-warning logIcon">取消</button>
+            </div>
+        </form>
+
+        <div id="agreeItems" layout="row" layout-align="center center">
+            <i class="fa fa-check-circle ok"></i>我已阅读<span style="color: mediumvioletred" ng-click="showCopyRight(event)">&lt;&lt;印象游使用条款和隐私政策&gt;&gt;</span>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $("#verificatalCode").click(function(){
+            var i=30;
+            timer=setInterval(function(){
+                i--;
+                $("#verificatalCode").css({"background":"mediumvioletred"}).text(i+"s后重试");
+
+                if(i<1){
+                    clearInterval(timer);
+                    $("#verificatalCode").text("验证码");
+                }
+            },1000);
+        })
+    })
+</script>

@@ -1,0 +1,79 @@
+<md-dialog>
+    <form>
+        <md-toolbar class="md-accent" layout="row" layout-align="space-around">
+            <h4>添加行程</h4>
+        </md-toolbar>
+        <md-dialog-content style="max-width:800px;max-height:810px;" layout="column" layout-align="space-around">
+            <div id="showAddAgenda_iconContainer" layout="row" layout-align="space-around">
+                <div class="showAddAgenda_icon" layout="column"><span class="fa fa-2x fa-cutlery "></span></div>
+                <div class="showAddAgenda_icon" layout="column"><span class="fa fa-2x fa-building "></span></div>
+                <div class="showAddAgenda_icon" layout="column"><span class="fa fa-2x fa-cab "></span></div>
+                <div class="showAddAgenda_icon" layout="column"><span class="fa fa-2x fa-tachometer "></span></div>
+                <div class="showAddAgenda_icon" layout="column"><span class="fa fa-2x fa-shopping-cart "></span></div>
+                <div class="showAddAgenda_icon" layout="column"><span class="fa fa-2x fa-delicious "></span></div>
+            </div>
+            <md-card>
+                <div>
+                    火车
+                </div>
+                <md-datepicker></md-datepicker>
+                <md-divider></md-divider>
+                <div layout="column">
+                    <div layout="row" layout-align="space-around">
+                        <div>出发地</div>
+                        <div>目的地</div>
+                    </div>
+                    <div layout="row" layout-align="space-around">
+                        <input class="showAddAgenda_input" type="text"/>
+                        <input class="showAddAgenda_input" type="text"/>
+                    </div>
+                </div>
+            </md-card>
+            <!--<div layout="row" layout-align="space-around">-->
+                <!--<md-button aria-label="" class="md-fab  md-mini">-->
+                    <!--<md-icon class="fa fa-cutlery"></md-icon>-->
+                    <!--<md-tooltip md-direction="left">-->
+                        <!--美食-->
+                    <!--</md-tooltip>-->
+                <!--</md-button>-->
+                <!--<md-button aria-label="" class="md-fab  md-mini">-->
+                    <!--<md-icon class="fa fa-building"></md-icon>-->
+                    <!--<md-tooltip md-direction="left">-->
+                        <!--住宿-->
+                    <!--</md-tooltip>-->
+                <!--</md-button>-->
+                <!--<md-button aria-label="" class="md-fab  md-mini" ng-click="pushTriffic()">-->
+                    <!--<md-icon class="fa fa-cab"></md-icon>-->
+                    <!--<md-tooltip md-direction="left">-->
+                        <!--交通-->
+                    <!--</md-tooltip>-->
+                <!--</md-button>-->
+            <!--</div>-->
+            <!--<div layout="row" layout-align="space-around">-->
+                <!--<md-button aria-label="" class="md-fab  md-mini">-->
+                    <!--<md-icon class="fa fa-tachometer"></md-icon>-->
+                    <!--<md-tooltip md-direction="left">-->
+                        <!--游玩-->
+                    <!--</md-tooltip>-->
+                <!--</md-button>-->
+                <!--<md-button aria-label="" class="md-fab  md-mini">-->
+                    <!--<md-icon class="fa fa-shopping-cart"></md-icon>-->
+                    <!--<md-tooltip md-direction="left">-->
+                        <!--购物-->
+                    <!--</md-tooltip>-->
+                <!--</md-button>-->
+                <!--<md-button aria-label="" class="md-fab  md-mini">-->
+                    <!--<md-icon class="fa fa-delicious"></md-icon>-->
+                    <!--<md-tooltip md-direction="left">-->
+                        <!--娱乐-->
+                    <!--</md-tooltip>-->
+                <!--</md-button>-->
+            <!--</div>-->
+        </md-dialog-content>
+        <md-dialog-actions layout="row" layout-align="space-around">
+            <md-button class="md-primary md-raised" ng-click="answer('提交成功')" >提交</md-button>
+            <md-button class="md-warn md-raised" ng-click="answer('取消成功')" style="margin-right:20px;" >取消</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+

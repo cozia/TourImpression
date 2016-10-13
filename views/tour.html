@@ -1,0 +1,29 @@
+<div class="view-in" ui-view="">
+    <md-toolbar id="tour_toolbar" class="md-accent" layout="row" layout-align="space-between">
+        <md-button class="fa fa-bars overFlow" ng-click="openNav()"></md-button>
+        <h4 style="margin-top: 25px">行程推荐</h4>
+        <a ui-sref="index.search">
+            <md-button style="height: 52px"  class="fa fa-search"></md-button>
+        </a>
+    </md-toolbar>
+    <div id="tour_box"></div>
+    <md-content>
+        <md-list >
+            <md-list-item ng-repeat="item in items" layout="row" flex>
+                <div>
+                    <img flex class="tourPhoto" ui-sref="index.agendaDetails" ng-src="{{item.tourPhoto}}?{{$index}}" />
+                </div>
+                <div layout="column" class="md-margin md-padding"flex >
+                    <b class="tourName">{{ item.tourName }}</b>
+                    <span class="note">{{ item.note }}</span>
+                </div>
+                <div>
+                    <md-icon style="outline-style: none" ng-class="{'md-accent fa fa-heart':is_selected(item.idx,selected),'md-accent fa fa-heart-o':is_unselected}"  ng-click="toggle_add_del_collection(item.idx,selected);addCollection($index)" ></md-icon>
+                </div>
+                <md-divider></md-divider>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</div>
+
+

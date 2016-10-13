@@ -1,0 +1,23 @@
+<md-content layout="column">
+    <div id="logining_top">
+    <span class="fa fa-2x fa-angle-left md-margin" ui-sref="index.login" style="color:#ffffff;"></span>
+    </div>
+    <form layout-padding ng-submit="submit()" name="vipForm">
+        <md-input-container class="md-block">
+            <label>手机号/邮箱</label>
+            <input md-maxlength="11" required md-no-asterisk name="userName" ng-model="vip.userName">
+            <div ng-show="vipForm.userName.$error.required&&vipForm.userName.$touched">
+                <span>用户名不能为空</span>
+            </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>密码</label>
+            <input  required md-no-asterisk name="password" ng-model="vip.password">
+            <div ng-show="vipForm.userName.$error.required&&vipForm.userName.$touched">
+                <span>密码好像忘了填哦</span>
+            </div>
+        </md-input-container>
+    </form>
+    <md-button  ng-disabled="!vipForm.$valid" class="md-raised md-primary" layout="column" layout-align="center center">登录</md-button>
+</md-content>
+

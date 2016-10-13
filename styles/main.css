@@ -1,0 +1,150 @@
+.closeAllBtn{}
+.error{
+    color: darkred;
+    font-size: 12px;
+    text-align: center;
+}
+#conX{
+    position: relative;
+}
+#userPic{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    outline-style: none;
+}
+.closeBtn{
+    margin-left: 132px;
+}
+/* md-siadenav*/
+#tour_toolbar{
+    position: fixed;
+}
+#tour_box{
+    width: 100%;
+    height: 62px;
+}
+.tourPhoto{
+    margin: 13px 0;
+    width: 100px;
+    height: 62px;
+    border-radius: 5px;
+}
+.tourName{
+    font-size: 1.1em;
+    line-height: 2em;
+    margin-top: 0;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.note{
+    line-height: 1.1em;
+    margin-top: 0;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+/*index页面end*/
+#logoBg{
+    height: 667px;
+
+    background: url("../img/logobackground.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.logo{
+    font-size: 100px;
+    color: mediumvioletred;
+
+}
+#loginBtn{
+    width: 100%;
+    position: relative;
+    bottom: 40px;
+}
+#logo{
+    position: relative;
+    top: -80px;
+    color: #ffffff;
+}
+#logining_top{
+    background: url("../img/top.jpg") no-repeat;
+    background-size: 100%;
+    height: 200px;
+}
+
+
+
+
+/*[ui-view].ng-enter {*/
+    /*opacity: 0;*/
+    /*-webkit-transform:translate3d(100px, 0, 0);*/
+    /*-moz-transform:translate3d(100px, 0, 0);*/
+    /*transform:translate3d(100px, 0, 0);*/
+/*}*/
+
+/*[ui-view].ng-leave {*/
+    /*opacity: 1;*/
+    /*-webkit-transform:translate3d(0, 0, 0);*/
+    /*-moz-transform:translate3d(0, 0, 0);*/
+    /*transform:translate3d(0, 0, 0);*/
+/*}*/
+
+/*ng-repeat的元素*/
+.x{
+    -webkit-transition: all linear 1s;
+    -o-transition: all linear 1s;
+    transition: all linear 1s;
+}
+/*动画开始前*/
+.x.ng-enter{
+    opacity:0;
+}
+/*动画过程*/
+.x.ng-enter-active{
+    opacity:1;
+}
+.x.ng-enter-stagger {
+    transition-delay:0.5s;
+    transition-duration:0;
+}
+.closebar{
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 16px;
+    top: 17px;
+}
+.closebar::before{
+    content:"";
+    position: absolute;
+    width: 26px;
+    height: 1px;
+    background: #ffffff;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 13px;
+}
+.closebar::after{
+    content:"";
+    position: absolute;
+    width: 26px;
+    height: 1px;
+    background: #ffffff;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 13px;
+}
